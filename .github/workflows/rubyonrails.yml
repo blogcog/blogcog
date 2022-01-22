@@ -4,68 +4,14 @@
 #
 # This workflow will install a prebuilt Ruby version, install dependencies, and
 # run tests and linters.
-name: "Ruby on Rails CI"
+name: "Publish and export"
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
 jobs:
-  test:
-    name: Test with Ruby ${{ matrix.ruby-version }}
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        ruby-version: [2.7.4, 2.7.5, 3.0.0-preview1, 3.0.0-preview2, 3.0.0-rc1, 3.0.0, 3.0.1, 3.0.2, 3.0.3, 3.1.0-preview1, 3.1.0]
-    services:
-      postgres:
-        image: postgres:11-alpine
-        ports:
-          - "5432:5432"
-        env:
-          POSTGRES_DB: rails_test
-          POSTGRES_USER: rails
-          POSTGRES_PASSWORD: password
-    env:
-      RAILS_ENV: test
-      DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      # Add or replace dependency steps here
-      - name: Install Ruby ${{ matrix.ruby-version }} and your gems
-        uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e # v1.92
-        with:
-          bundler-cache: true
-          ruby-version: ${{ matrix.ruby-version }}
-      - run: |
-         sudo apt-get install rails
-      # Add or replace test runners here
-      - name: Run tests
-        run: bin/rake
-
-  lint:
-    name: Lint with Ruby ${{ matrix.ruby-version }}
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        ruby-version: [2.7.4, 2.7.5, 3.0.0-preview1, 3.0.0-preview2, 3.0.0-rc1, 3.0.0, 3.0.1, 3.0.2, 3.0.3, 3.1.0-preview1, 3.1.0]
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Install Ruby ${{ matrix.ruby-version }} and your gems
-        uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e # v1.92
-        with:
-          bundler-cache: true
-          ruby-version: ${{ matrix.ruby-version }}
-      - run: |
-         sudo apt-get install rails
-      # Add or replace any other lints here
-      - name: Lint Ruby files
-        uses: andrewmcodes-archive/rubocop-linter-action@v3.3.0
-        
   publish:
-     needs: [test, lint]
      runs-on: ubuntu-latest
      steps:
         - name: Publish gem
@@ -74,7 +20,7 @@ jobs:
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
   export:
-   needs: [publish, test]
+   needs: publish
    runs-on: ubuntu-latest
    steps:
      - uses: actions/upload-artifact@v2
