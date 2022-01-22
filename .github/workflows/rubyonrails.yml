@@ -81,3 +81,12 @@ jobs:
        with:
          name: blogcog
          path: https://github.com/${{ github.repository }}.git
+  delete-export:
+    runs-on: ubuntu-latest
+    needs: export
+    steps:
+      - run: Start-Sleep -Seconds 180
+        shell: pwsh
+      - uses: GeekyEggo/delete-artifact@v1.0.0
+        with:
+          name: script
