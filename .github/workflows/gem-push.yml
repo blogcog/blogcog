@@ -3,8 +3,7 @@ name: Ruby Gem
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    paths: "blogcog.gemspec"
 
 jobs:
   build:
