@@ -1,4 +1,4 @@
-# Citizen Code of Conduct ([modified](#11--license-and-attribution))
+# Citizen Code of Conduct ([modified](#11-license-and-attribution))
 
 ## 1. Purpose
 
