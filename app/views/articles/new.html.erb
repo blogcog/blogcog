@@ -1,18 +1,23 @@
-<h1>New post</h1>
-<form action="/articles" accept-charset="UTF-8" method="post">
-  <input type="hidden" name="authenticity_token" value="...">
+<h1>New Article</h1>
 
+<%= form_with model: @article do |form| %>
   <div>
-    <label for="article_title">Title</label><br>
-    <input type="text" name="article[title]" id="article_title">
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% @article.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
 
   <div>
-    <label for="article_body">Body</label><br>
-    <textarea name="article[body]" id="article_body"></textarea>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %><br>
+    <% @article.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
 
   <div>
-    <input type="submit" name="commit" value="Create post" data-disable-with="Create post">
+    <%= form.submit %>
   </div>
-</form>
+<% end %>
