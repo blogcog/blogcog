@@ -1,4 +1,4 @@
-# Citizen Code of Conduct (modified)
+# Citizen Code of Conduct ([modified](#license-and-attribution))
 
 ## 1. Purpose
 
@@ -84,6 +84,8 @@ tylermageeshields@gmail.com
 The Citizen Code of Conduct is distributed by [Stumptown Syndicate](http://stumptownsyndicate.org) under a [Creative Commons Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/3.0/). 
 
 Portions of text derived from the [Django Code of Conduct](https://www.djangoproject.com/conduct/) and the [Geek Feminism Anti-Harassment Policy](http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy).
+
+_BlogCog Modifications: add age to regardless, add modifed note to title._
 
 _Revision 2.3. Posted 6 March 2017._
 
