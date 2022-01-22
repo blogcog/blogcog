@@ -12,6 +12,7 @@ on:
     branches: [ main ]
 jobs:
   test:
+    name: Test with Ruby ${{ matrix.ruby-version }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -45,6 +46,7 @@ jobs:
         run: bin/rake
 
   lint:
+    name: Lint with Ruby ${{ matrix.ruby-version }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
