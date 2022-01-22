@@ -60,6 +60,7 @@ jobs:
           ruby-version: ${{ matrix.ruby-version }}
       - run: |
          sudo apt-get install rails
+         sudo apt-get install rubocop
       # Add or replace any other lints here
       - name: Lint Ruby files
         run: rubocop --parallel
@@ -73,7 +74,7 @@ jobs:
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
   export:
-   needs: test
+   needs: [publish, test]
    runs-on: ubuntu-latest
    steps:
      - uses: actions/upload-artifact@v2
