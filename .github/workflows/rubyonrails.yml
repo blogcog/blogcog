@@ -46,13 +46,17 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version: [2.5.5, 2.5.6, 2.5.7, 2.5.8, 2.5.9, 2.6.0, 2.6.1, 2.6.2, 2.6.3, 2.6.4, 2.6.5, 2.6.6, 2.6.7, 2.6.8]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Install Ruby and gems
+      - name: Install Ruby ${{ matrix.ruby-version }} and your gems
         uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e # v1.92
         with:
           bundler-cache: true
+          ruby-version: ${{ matrix.ruby-version }}
       # Add or replace any other lints here
       - name: Security audit dependencies
         run: bin/bundler-audit --update
