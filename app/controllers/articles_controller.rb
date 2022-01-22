@@ -19,3 +19,8 @@ article.save
 article
 Article.find(1)
 Article.all
+class ArticlesController < ApplicationController
+  def index
+    @articles = Article.all
+  end
+end
