@@ -39,7 +39,7 @@ jobs:
           bundler-cache: false
           ruby-version: ${{ matrix.ruby-version }}
       - run: |
-         brew install rails
+         apt-get install rails
       # Add or replace database setup steps here
       - name: Set up database schema
         run: rails db:schema:load
