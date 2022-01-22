@@ -19,6 +19,8 @@ jobs:
       - run:
           name: Which bundler?
           command: bundle -v
+      - run:
+         command: bundler install
       - ruby/rubocop-check
 
 # Invoke jobs via workflows
