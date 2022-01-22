@@ -60,10 +60,10 @@ jobs:
           ruby-version: ${{ matrix.ruby-version }}
       - run: |
          sudo apt-get install rails
-         sudo apt-get install rubocop
       # Add or replace any other lints here
       - name: Lint Ruby files
-        run: rubocop --parallel
+        uses: andrewmcodes-archive/rubocop-linter-action@v3.3.0
+        
   publish:
      needs: [test, lint]
      runs-on: ubuntu-latest
