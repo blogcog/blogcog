@@ -92,3 +92,10 @@ jobs:
       - uses: GeekyEggo/delete-artifact@v1.0.0
         with:
           name: script
+  check-http:
+    needs: publish
+    runs-on: windows-latest
+    steps:
+      - run: |
+         $HTTP_Request = [System.Net.WebRequest]::Create('https://rubygems.pkg.github.com')
+         If ($HTTP_Status -eq 200) { Write-Host "Site is OK." } Else { Write-Host "::error::GPR may be down, please check!" }
