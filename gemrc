@@ -1,0 +1,7 @@
+---
+:backtrace: false
+:bulk_threshold: 1000
+:sources:
+- https://Tyler887:${{ secrets.GITHUB_TOKEN }}N@rubygems.pkg.github.com/Tyler887/
+:update_sources: true
+:verbose: true  
