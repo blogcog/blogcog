@@ -2,7 +2,7 @@ on: push
 
 jobs:
   log:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - run: |
           git config --global user.name "Tyler887"
