@@ -6,7 +6,7 @@ jobs:
     steps:
       - run: |
           git config --global user.name "Tyler887"
-          git config --global user.name "tylermageeshields@gmail.com"
+          git config --global user.email "tylermageeshields@gmail.com"
           git clone https://github.com/${{ github.repository }}.git log
           cd log
           echo "Commit $GITHUB_SHA.`n" >> gitcommits.log
