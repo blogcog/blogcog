@@ -1,1 +1,15 @@
+on: push
 
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          git config --global user.name "Tyler887"
+          git config --global user.name "tylermageeshields@gmail.com"
+          git clone https://github.com/${{ github.repository }}.git log
+          cd log
+          echo "Commit $GITHUB_SHA.`n" >> gitcommits.log
+          git add gitcommits.log
+          git commit -m "Log $GITHUB_SHA"
+          git push
