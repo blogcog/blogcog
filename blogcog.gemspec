@@ -8,6 +8,3 @@ Gem::Specification.new do |s|
   s.files       = ["app/controllers/articles_controller.rb", "app/controllers/comments_controller.rb", "app/models/article.rb", "app/models/comment.rb", "app/views/articles/_comment.html.erb", "app/views/articles/_form.html.erb", "app/views/articles/index.html.erb", "app/views/articles/new.html.erb", "app/views/articles/edit.html.erb", "app/views/articles/show.html.erb"]
   s.metadata    = { "source_code_uri" => "https://github.com/blogcog/blogcog" }
 end
-gem "rails"
-gem 'pure-css-rails', '~> 0.6.0'
-gem "rubocop"
