@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'blogcog'
-  s.version     = '1.1'
+  s.version     = '1.1.2'
   s.licenses    = ['MIT']
   s.summary     = "Blog extension for Rails"
   s.description = "BlogCog is an extension for Rails allowing you to create simple blogs."
