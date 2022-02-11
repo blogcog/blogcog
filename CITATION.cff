@@ -2,6 +2,8 @@ cff-version: 1.2.0
 message: "If you use BlogCog to run your blog, and the blog has source code available, we would appreciate cite it as below."
 
 title: "BlogCog"
-
+authors:
+  - family-name: "BlogCog"
+    given-name: "The BlogCog Authors"
 license: "MIT"
 url: "https://github.com/blogcog/blogcog"
