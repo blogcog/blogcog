@@ -1,4 +1,5 @@
 RUN "echo 'Welcome to BlogCog (docker version)!'"
+RUN "sudo apt install rails -y"
 RUN "rails new ~/RubyApp"
 RUN "cd ~/RubyApp"
-RUN "rails start"
+RUN "rails s"
