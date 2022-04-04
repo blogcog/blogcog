@@ -17,6 +17,9 @@ jobs:
     steps:
       - checkout
       - run:
+         name: Install rails
+         command: sudo apt-get install rails
+      - run:
           name: Which bundler?
           command: bundle -v
       - run:
