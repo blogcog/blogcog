@@ -18,7 +18,8 @@ jobs:
       - checkout
       - run:
          name: Install rails
-         command: sudo apt update && sudo apt-get install rails -y
+         command: sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y --purge && sudo apt-get install rails -y
+                                                                                   # Config files for uninstalled packages are not needed!
       - run:
           name: Which bundler?
           command: bundle -v
