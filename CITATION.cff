@@ -1,7 +1,0 @@
-cff-version: 1.2.0
-message: "If you use BlogCog to run a blog, please cite it as below."
-
-title: "BlogCog"
-version: 1.1.2
-doi:
-url: "https://github.com/blogcog/blogcog"
